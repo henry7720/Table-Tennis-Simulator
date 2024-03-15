@@ -202,8 +202,9 @@ markdown as HTML or a PDF to read this rubric as a table).
 > would like to say about the assignment? For example, are there any resources
 > that could help you complete this assignment? Feel free to use the feedback
 > rubric above when reviewing this assignment.
-Only one thing, the `settings.json` was a little borked. As expected path separators had to be switched like we discussed for Linux and macOS (I use Fedora btw lmao) -- which also work on Windows!
-Also had to copy & paste `components.jar` file into `lib/`, may be nice to have that already**
+
+Only one thing, the `settings.json` was a little borked. As expected path separators had to be switched like we discussed for Linux and macOS, glad I noticed that the last and this time (I use Fedora btw lmao) -- which also work on Windows!
+Also had to copy & paste `components.jar` file into `lib/`, may be nice to have that already done**
 
 In particular, these lines in `settings.json` are fixed to have the correct behaviour, since before they did not:
 ```json
