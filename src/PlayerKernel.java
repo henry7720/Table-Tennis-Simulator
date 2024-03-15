@@ -3,6 +3,8 @@ import components.standard.Standard;
 /**
  * Player kernel component with primary methods.
  *
+ * These are getters and setters so the following functionality in the Player
+ * class may be satisfied.
  */
 public interface PlayerKernel extends Standard<Player> {
 
@@ -43,8 +45,4 @@ public interface PlayerKernel extends Standard<Player> {
      * @ensures [roundNumber = changed]
      */
     void setRound(int changed);
-
-    // private final int getTotalWins() {
-    //     return this.wins;
-    // }
 }
