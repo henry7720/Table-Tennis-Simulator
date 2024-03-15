@@ -1,6 +1,6 @@
 {
     "editor.rulers": [
-        80,
+        90,
     ],
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
@@ -8,10 +8,10 @@
     "markdown-pdf.convertOnSave": true,
     "markdown-pdf.format": "Letter",
     "markdown-pdf.outputDirectory": "",
-    "markdown-pdf.highlightStyle": "a11y-light.css",
+    "markdown-pdf.highlightStyle": "github.css",
     "print.colourScheme": "A11 Y",
-    "java.checkstyle.configuration": ".vscode\\osu-cse-checkstyle-config.xml",
-    "java.format.settings.url": ".vscode\\osu-cse-formatter.xml",
+    "java.checkstyle.configuration": ".vscode/osu-cse-checkstyle-config.xml",
+    "java.format.settings.url": ".vscode/osu-cse-formatter.xml",
     "java.format.settings.profile": "OSU CSE",
     "java.project.sourcePaths": [
         "src",
@@ -19,7 +19,7 @@
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/*.jar"
     ],
     "files.trimTrailingWhitespace": true,
     "java.saveActions.organizeImports": true,
