@@ -1,8 +1,8 @@
 # Portfolio Part 2: Component Proof-of-Concept
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Henry
+- **Dot Number**: Trowbridge.47
+- **Due Date**: 3/1, 11:59
 
 ## Assignment Overview
 
@@ -67,9 +67,18 @@ project. Specifically, students should be able to:
 
 1. Predict which design would be appropriate to move forward with given time
    constraints, interests, and/or humility (among other real-world variables)
+The Table tennis score keeper seems easiest, while still being applicable to the general discipline.
+
 2. Select appropriate methods and fields to demonstrate the achievability of
    the proof-of-concept
+
+Component Design #1: Table Tennis Score Keeper (Player object with score properties) w/ Web Server for Live Updates)
+  - **Description**: This component would be a relatively basic score keeper for table tennis matches given predefined names, except it would be live-hosted on a webserver.
+  - **Kernel Methods**:  `int getScore()`, `void setScore(int changed)`, `int getRoundNumber()`, `int getTotalWins()`
+  - **Secondary Methods**: `int addPoint()`, `int newRound()`, `void determineWinner(Player one, Player two)`, `void updateClientView(SimpleWriter file, int score, int roundNumber, int totalWins, Player one, Player two)`
+
 3. Assemble a minimal working implementation of one of their designs
+Got it. The idea of the Java component is that it is simpler, so a Python HTTP hosted webserver is the alternate backend. I won't have to port forward it, but you get the idea.
 
 ## Assignment Rubric: 10 Points
 
@@ -109,8 +118,7 @@ do good work.
 > to create a new design. In you do end up picking one at random, you should
 > disclose that here as well.
 
-<!-- TODO: briefly argue your choice of design or design something
-new; then delete this comment -->
+The idea of this component is that, while simple, it provides a backend to make a live score keeper for a server but without limitations of JavaScript. For this kind of purpose, Java is well-suited!
 
 ## Assignment Tasks
 
@@ -178,7 +186,7 @@ table).
 > that could help you complete this assignment? Feel free to use the feedback
 > rubric above when reviewing this assignment.
 
-<!-- TODO: share your feedback here -->
+I think it's a good framework.
 
 [pottery-fails]: https://www.youtube.com/shorts/Kqb9l113F_0?feature=share
 [markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
