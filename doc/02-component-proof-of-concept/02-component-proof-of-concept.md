@@ -72,7 +72,7 @@ The Table tennis score keeper seems easiest, while still being applicable to the
 2. Select appropriate methods and fields to demonstrate the achievability of
    the proof-of-concept
 
-Component Design #1: Table Tennis Score Keeper (Player object with score properties) w/ Web Server for Live Updates)
+Component Design #1: Table Tennis Score Keeper (Player object with score properties) w/ Web Server for Live Updates of View
   - **Description**: This component would be a relatively basic score keeper for table tennis matches given predefined names, except it would be live-hosted on a webserver.
   - **Kernel Methods**:  `int getScore()`, `void setScore(int changed)`, `int getRoundNumber()`, `int getTotalWins()`
   - **Secondary Methods**: `int addPoint()`, `int newRound()`, `void determineWinner(Player one, Player two)`, `void updateClientView(SimpleWriter file, int score, int roundNumber, int totalWins, Player one, Player two)`
