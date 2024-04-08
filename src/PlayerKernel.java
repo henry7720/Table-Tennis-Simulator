@@ -37,6 +37,15 @@ public interface PlayerKernel extends Standard<Player> {
     int getRoundNumber();
 
     /**
+     * Returns the player's total wins.
+     *
+     * @requires 0 < totalWins <= 5
+     * @ensures [getWins() = totalWins]
+     * @return the current number of wins
+     */
+    int getWins();
+
+    /**
      * Sets a new round number.
      *
      * @param changed
