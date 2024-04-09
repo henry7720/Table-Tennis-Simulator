@@ -137,6 +137,10 @@ do good work.
 > Feel free to use the template above when writing out your changes.
 
 <!-- TODO: include your changes to your design here -->
+Added get round number to interface, created stub file for Player1, implemented equals, hashCode and toString.
+Added an inProgress method, added a new Round method
+
+These methods are useful because they help us know the state of a game's progress and setup a new Round as needed.
 
 ## Assignment Tasks
 

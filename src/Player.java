@@ -7,8 +7,18 @@ public interface Player extends PlayerKernel {
 
     /**
      * Adds a point to the score of a player.
+     *
+     * @requires score <= 10, except when the two players already tied
+     * @ensures [current score += 1]
      */
     void addPoint();
+
+    /**
+     * Sets up a new game round.
+     *
+     * @requires round umber <= 4
+     */
+    void nextRound();
 
     /**
      * Determines the winner of the match of two players, then returns that
@@ -21,8 +31,9 @@ public interface Player extends PlayerKernel {
      * @return boolean value, true for player one winning, false for player two
      * @requires both players are initialized and neither player has the same
      *           score as the other
-     * @ensures determineWinner(Player one, Player two) = true for player one
-     *          winning, false for player two winning
+     * @requires that this.inProgress = false
+     * @ensures [determineWinner(Player one, Player two) = true for player one
+     *          winning, false for player two winning]
      */
     boolean determineWinner(Player one, Player two);
 

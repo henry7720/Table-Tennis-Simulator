@@ -9,11 +9,21 @@ import components.standard.Standard;
 public interface PlayerKernel extends Standard<Player> {
 
     /**
+     * Returns if the current game is in progress.
+     *
+     * @requires score >= 0
+     * @ensures [inProgress = true if game is in progress, false if a game is
+     *          completed]
+     * @return whether game in progress
+     */
+    boolean inProgress();
+
+    /**
      * Returns the player's current score.
      *
      * @requires score >= 0
-     * @ensures [getScore() = score] @ return
-     * @return the current score number
+     * @ensures [getScore() = score]
+     * @return the last current score number
      */
     int getScore();
 
