@@ -19,6 +19,22 @@ public interface PlayerKernel extends Standard<Player> {
     boolean inProgress();
 
     /**
+     * Starts a game (one round only).
+     *
+     * @requires this is not inProgress
+     * @ensures [inProgress = true, to represent starting game]
+     */
+    void startGame();
+
+    /**
+     * End game (one round only).
+     *
+     * @requires this is inProgress
+     * @ensures [inProgress = false, to represent ending game]
+     */
+    void endGame();
+
+    /**
      * Returns the player's current score.
      *
      * @requires score >= 0

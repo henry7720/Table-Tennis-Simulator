@@ -24,28 +24,26 @@ public interface Player extends PlayerKernel {
      * Determines the winner of the match of two players, then returns that
      * Player.
      *
-     * @param one
-     *            the first player
      * @param two
-     *            the second player
-     * @return boolean value, true for player one winning, false for player two
+     *            the second player to compare to
+     * @return int value, 0 for player one winning, 1 for player two, -1 for
+     *         neither
      * @requires both players are initialized and neither player has the same
      *           score as the other
-     * @requires that this.inProgress = false
      * @ensures [determineWinner(Player one, Player two) = true for player one
-     *          winning, false for player two winning]
+     *          winning, false for player two winning; sets inProgress to be
+     *          false]
      */
-    boolean determineWinner(Player one, Player two);
+    int determineWinner(Player two);
 
     /**
      * Updates the primary index file being live-hosted.
      *
      * @param file
      *            the file to write to
-     * @param one
-     *            the player one whose attributes are to be displayed
      * @param two
      *            the player one whose attributes are to be displayed
+     *            accompanying this
      */
-    void updateClientView(SimpleWriter file, Player one, Player two);
+    void updateClientView(SimpleWriter file, Player two);
 }

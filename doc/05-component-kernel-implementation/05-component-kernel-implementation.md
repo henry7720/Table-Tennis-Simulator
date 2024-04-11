@@ -122,7 +122,7 @@ do good work.
 > discuss how that representation will be restricted (i.e., by convention)
 > and interpreted (i.e., by correspondence).
 
-<!-- TODO: select a representation and explain why -->
+I was just using a few integers and a boolean, since I did not see severe benefits of having a collection type, like a set. I could've but opted not to for efficiency and clarity.
 
 ## Assignment Tasks
 

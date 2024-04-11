@@ -16,7 +16,7 @@ public abstract class PlayerSecondary implements Player {
             return false;
         }
 
-        // Ensure that o is a WaitingLine object
+        // Ensure that o is a Player object
         if (!(obj instanceof Player)) {
             return false;
         }
@@ -55,19 +55,27 @@ public abstract class PlayerSecondary implements Player {
     }
 
     @Override
-    public boolean determineWinner(Player one, Player two) {
-        int oneScore = one.getScore();
+    public int determineWinner(Player two) {
+        int oneScore = this.getScore();
         int twoScore = two.getScore();
 
-        if (Math.abs(oneScore - twoScore) >= 2 && oneScore >= 11) {
-            return true;
+        if (Math.abs(oneScore - twoScore) >= 2) {
+
+            if (oneScore >= 11) {
+                return 0;
+            }
+
+            if (twoScore >= 11) {
+                return 1;
+            }
         }
 
-        return false;
+        return -1;
+
     }
 
     @Override
-    public void updateClientView(SimpleWriter file, Player one, Player two) {
+    public void updateClientView(SimpleWriter file, Player two) {
         file.println("<!DOCTYPE HTML>");
         file.println("<html lang=\"en\">");
         file.println("  <head>");
@@ -93,22 +101,17 @@ public abstract class PlayerSecondary implements Player {
         file.println("      </tr>");
         file.println("      <tr>");
         file.println("        <th>Wins</th>");
-        file.println("        <td>" + one.getWins() + "</td>");
+        file.println("        <td>" + this.getWins() + "</td>");
         file.println("        <td>" + two.getWins() + "</td>");
         file.println("      </tr>");
         file.println("      <tr>");
         file.println("        <th>Round Number(s)</th>");
-        file.println("        <td>" + one.getRoundNumber() + "</td>");
-        file.println("        <td>" + two.getRoundNumber() + "</td>");
-        file.println("      </tr>");
-        file.println("      <tr>");
-        file.println("        <th>Round Number(s)</th>");
-        file.println("        <td>" + one.getRoundNumber() + "</td>");
+        file.println("        <td>" + this.getRoundNumber() + "</td>");
         file.println("        <td>" + two.getRoundNumber() + "</td>");
         file.println("      </tr>");
         file.println("      <tr>");
         file.println("        <th>Last Known Score</th>");
-        file.println("        <td>" + one.getScore() + "</td>");
+        file.println("        <td>" + this.getScore() + "</td>");
         file.println("        <td>" + two.getScore() + "</td>");
         file.println("      </tr>");
         file.println("    </table>");

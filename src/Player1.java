@@ -81,6 +81,11 @@ public class Player1 extends PlayerSecondary {
     }
 
     @Override
+    public void startGame() {
+        this.inProgress = true;
+    }
+
+    @Override
     public int getScore() {
         return this.score;
     }
@@ -130,7 +135,25 @@ public class Player1 extends PlayerSecondary {
 
         out.println("Let's simulate a game between the two.");
 
-        String contents = in.nextLine();
+        one.startGame();
+        two.startGame();
+
+        int onePointsWon = (int) Math.random() * (11 - one.getScore());
+        for (int i = 0; i < onePointsWon; i++) {
+            one.addPoint();
+        }
+
+        int twoPointsWon = (int) Math.random() * (11 - two.getScore());
+
+        for (int i = 0; i < twoPointsWon; i++) {
+            two.addPoint();
+        }
+
+        if (one.determineWinner(two) <= 0) {
+            out.println("Whoa, it seems the game's not over yet.");
+        }
+
+        one.updateClientView(fileOut, two);
 
         out.close();
         in.close();
