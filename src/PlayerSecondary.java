@@ -1,3 +1,5 @@
+import java.util.Random;
+
 import components.simplewriter.SimpleWriter;
 
 /**
@@ -60,18 +62,52 @@ public abstract class PlayerSecondary implements Player {
         int twoScore = two.getScore();
 
         if (Math.abs(oneScore - twoScore) >= 2) {
-
-            if (oneScore >= 11) {
-                return 0;
+            if (twoScore >= 11) {
+                two.setWins(two.getWins() + 1);
+                return 1;
             }
 
-            if (twoScore >= 11) {
-                return 1;
+            if (oneScore >= 11) {
+                this.setWins(this.getWins() + 1);
+                return 0;
             }
         }
 
         return -1;
 
+    }
+
+    @Override
+    public void simulateGame(Player two) {
+        this.nextRound();
+        two.nextRound();
+
+        while (this.determineWinner(two) < 0) {
+            if (this.getScore() == two.getScore()) {
+                Random random = new Random();
+                if (random.nextBoolean()) {
+                    this.setScore(this.getScore() + 2);
+                } else {
+                    two.setScore(two.getScore() + 2);
+                }
+
+            } else {
+                int thisPointsWon = (int) (Math.random()
+                        * (11 - this.getScore()) + 1);
+                this.setScore(this.getScore() + thisPointsWon);
+
+                int twoPointsWon = (int) (Math.random() * (11 - two.getScore())
+                        + 1);
+                two.setScore(two.getScore() + twoPointsWon);
+            }
+            // for (int i = 0; i < onePointsWon; i++) {
+            //     one.addPoint();
+            // }
+
+            // for (int i = 0; i < twoPointsWon; i++) {
+            //     two.addPoint();
+            // }
+        }
     }
 
     @Override

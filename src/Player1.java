@@ -4,12 +4,13 @@ import components.simplewriter.SimpleWriter;
 import components.simplewriter.SimpleWriter1L;
 
 /**
- * {@code Player} represented as a set of integer values.
+ * {@code Player} represented as a set of integer values and a boolean
+ * describing score, roundNumber, wins, and game inProgress.
  *
  * @convention Score may never exceed 11 except when players are tied.
- * @convention Round number must be 1 <= round <= 5 (best of 5).
- * @correspondence [private members contain relevant data in appropriate date
- *                 types]
+ * @convention Round number starts at 0 but must be 1 <= round <= 5 (best of 5).
+ * @correspondence [0 <= score <= 11, 0 <= roundNumber <= 5, 0 <= wins,
+ *                 inProgress = true | false]
  * @author H. Trowbridge
  */
 public class Player1 extends PlayerSecondary {
@@ -33,7 +34,7 @@ public class Player1 extends PlayerSecondary {
     /** Create initial representation of the date in our four variables. */
     private void createNewRep() {
         this.score = 0;
-        this.roundNumber = 1;
+        this.roundNumber = 0;
         this.wins = 0;
         this.inProgress = false;
     }
@@ -86,6 +87,12 @@ public class Player1 extends PlayerSecondary {
     }
 
     @Override
+    public void endGame() {
+        this.inProgress = false;
+        this.score = 0;
+    }
+
+    @Override
     public int getScore() {
         return this.score;
     }
@@ -106,6 +113,11 @@ public class Player1 extends PlayerSecondary {
     }
 
     @Override
+    public void setWins(int changed) {
+        this.wins = changed;
+    }
+
+    @Override
     public void setRound(int changed) {
         this.roundNumber = changed;
     }
@@ -120,6 +132,7 @@ public class Player1 extends PlayerSecondary {
         SimpleWriter out = new SimpleWriter1L();
         SimpleReader in = new SimpleReader1L();
         SimpleWriter fileOut;
+        int gameCount = 0;
 
         String fileName;
         out.println(
@@ -128,32 +141,54 @@ public class Player1 extends PlayerSecondary {
         fileName = in.nextLine();
         fileOut = new SimpleWriter1L(fileName);
 
-        out.println("Hey y'all. Let's play a game! Alright, starting now.");
+        out.println("Hey y'all.");
         out.println("Starting new round for each player :)...");
         Player one = new Player1();
         Player two = new Player1();
 
-        out.println("Let's simulate a game between the two.");
-
+        out.println("Let's simulate a game between the two. Starting now.");
         one.startGame();
         two.startGame();
 
-        int onePointsWon = (int) Math.random() * (11 - one.getScore());
-        for (int i = 0; i < onePointsWon; i++) {
-            one.addPoint();
+        one.simulateGame(two);
+
+        one.endGame();
+        two.endGame();
+        gameCount++;
+
+        int roundVal = Math.max(one.getRoundNumber(), two.getRoundNumber());
+        boolean finished = false;
+        String input;
+
+        while (roundVal < 4 && !finished) {
+            out.println("Would you like to simulate another? Type 'y or n'");
+            input = in.nextLine();
+            if (input.toLowerCase().trim().equals("y") && gameCount < 4) {
+                one.startGame();
+                two.startGame();
+
+                one.simulateGame(two);
+
+                one.endGame();
+                two.endGame();
+                gameCount++;
+                out.println("Game " + gameCount + " done!");
+            } else {
+                finished = true;
+            }
         }
 
-        int twoPointsWon = (int) Math.random() * (11 - two.getScore());
+        out.println(
+                "Let's simulate one last game between the two. Starting now.");
+        one.startGame();
+        two.startGame();
 
-        for (int i = 0; i < twoPointsWon; i++) {
-            two.addPoint();
-        }
-
-        if (one.determineWinner(two) <= 0) {
-            out.println("Whoa, it seems the game's not over yet.");
-        }
+        one.simulateGame(two);
 
         one.updateClientView(fileOut, two);
+        one.endGame();
+        two.endGame();
+        out.println("Game is over!");
 
         out.close();
         in.close();

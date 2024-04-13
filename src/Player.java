@@ -16,7 +16,8 @@ public interface Player extends PlayerKernel {
     /**
      * Sets up a new game round.
      *
-     * @requires round umber <= 4
+     * @requires round number <= 4
+     * @ensures round number ++
      */
     void nextRound();
 
@@ -37,6 +38,17 @@ public interface Player extends PlayerKernel {
     int determineWinner(Player two);
 
     /**
+     * Simulates a game (round) between two players.
+     *
+     * @param two
+     *            the player two who will be fought!
+     * @requires two exists
+     * @ensures a game is simulated and appropriate fields of data are updates;
+     *          scores, rounds, etc
+     */
+    void simulateGame(Player two);
+
+    /**
      * Updates the primary index file being live-hosted.
      *
      * @param file
@@ -44,6 +56,8 @@ public interface Player extends PlayerKernel {
      * @param two
      *            the player one whose attributes are to be displayed
      *            accompanying this
+     * @requires file exists, Player two exists
+     * @ensures data will be dumped to web page appropriately
      */
     void updateClientView(SimpleWriter file, Player two);
 }

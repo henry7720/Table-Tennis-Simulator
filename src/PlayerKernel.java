@@ -30,7 +30,7 @@ public interface PlayerKernel extends Standard<Player> {
      * End game (one round only).
      *
      * @requires this is inProgress
-     * @ensures [inProgress = false, to represent ending game]
+     * @ensures [inProgress = false, to represent ending game, this.score = 0]
      */
     void endGame();
 
@@ -65,11 +65,21 @@ public interface PlayerKernel extends Standard<Player> {
     /**
      * Returns the player's total wins.
      *
-     * @requires 0 < totalWins <= 5
+     * @requires 0 < totalWins
      * @ensures [getWins() = totalWins]
      * @return the current number of wins
      */
     int getWins();
+
+    /**
+     * Updates the player's current wins.
+     *
+     * @param changed
+     *            is the new wins value
+     * @requires 0 < totalWins <= 5
+     * @ensures [this.wins = changed]
+     */
+    void setWins(int changed);
 
     /**
      * Sets a new round number.
