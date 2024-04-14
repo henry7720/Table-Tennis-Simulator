@@ -61,13 +61,14 @@ public abstract class PlayerSecondary implements Player {
         int oneScore = this.getScore();
         int twoScore = two.getScore();
 
-        if (Math.abs(oneScore - twoScore) >= 2) {
-            if (twoScore >= 11) {
+        if ((twoScore >= 11 || oneScore >= 11)
+                && Math.abs(oneScore - twoScore) >= 2) {
+            if (twoScore > oneScore) {
                 two.setWins(two.getWins() + 1);
                 return 1;
             }
 
-            if (oneScore >= 11) {
+            if (oneScore > twoScore) {
                 this.setWins(this.getWins() + 1);
                 return 0;
             }
@@ -82,23 +83,30 @@ public abstract class PlayerSecondary implements Player {
         this.nextRound();
         two.nextRound();
 
+        int limit = 11;
         while (this.determineWinner(two) < 0) {
-            if (this.getScore() == two.getScore()) {
-                Random random = new Random();
+            Random random = new Random();
+            if (this.getScore() != two.getScore()) {
                 if (random.nextBoolean()) {
-                    this.setScore(this.getScore() + 2);
+                    this.setScore(this.getScore() + 1);
                 } else {
-                    two.setScore(two.getScore() + 2);
+                    two.setScore(two.getScore() + 1);
                 }
 
             } else {
-                int thisPointsWon = (int) (Math.random()
-                        * (11 - this.getScore()) + 1);
-                this.setScore(this.getScore() + thisPointsWon);
+                if (random.nextBoolean()) {
+                    // int thisPointsWon = (int) (Math.random()
+                    //         * (limit - this.getScore()) + 1);
+                    this.setScore(this.getScore() + 2);
+                } else {
+                    // int twoPointsWon = (int) (Math.random()
+                    //         * (limit - two.getScore()) + 1);
+                    two.setScore(two.getScore() + 2);
+                }
 
-                int twoPointsWon = (int) (Math.random() * (11 - two.getScore())
-                        + 1);
-                two.setScore(two.getScore() + twoPointsWon);
+                // if (this.getScore() == limit || two.getScore() == limit) {
+                //     limit += 2;
+                // }
             }
             // for (int i = 0; i < onePointsWon; i++) {
             //     one.addPoint();
