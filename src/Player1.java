@@ -161,6 +161,7 @@ public class Player1 extends PlayerSecondary {
         String input;
 
         while (roundVal < 4 && !finished) {
+            // TODO - cleanup and fix data
             out.println("Would you like to simulate another? Type 'y or n'");
             input = in.nextLine();
             if (input.toLowerCase().trim().equals("y") && gameCount < 4) {
