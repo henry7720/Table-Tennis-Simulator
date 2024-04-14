@@ -83,7 +83,6 @@ public abstract class PlayerSecondary implements Player {
         this.nextRound();
         two.nextRound();
 
-        int limit = 11;
         while (this.determineWinner(two) < 0) {
             Random random = new Random();
             if (this.getScore() != two.getScore()) {
@@ -95,26 +94,11 @@ public abstract class PlayerSecondary implements Player {
 
             } else {
                 if (random.nextBoolean()) {
-                    // int thisPointsWon = (int) (Math.random()
-                    //         * (limit - this.getScore()) + 1);
                     this.setScore(this.getScore() + 2);
                 } else {
-                    // int twoPointsWon = (int) (Math.random()
-                    //         * (limit - two.getScore()) + 1);
                     two.setScore(two.getScore() + 2);
                 }
-
-                // if (this.getScore() == limit || two.getScore() == limit) {
-                //     limit += 2;
-                // }
             }
-            // for (int i = 0; i < onePointsWon; i++) {
-            //     one.addPoint();
-            // }
-
-            // for (int i = 0; i < twoPointsWon; i++) {
-            //     two.addPoint();
-            // }
         }
     }
 
