@@ -26,9 +26,11 @@ public abstract class PlayerSecondary implements Player {
         // Since it is Player object, formally cast
         Player p = (Player) obj;
 
-        // Check lengths
+        // Check data rep value equality
         if (this.getScore() != p.getScore()
-                || this.getRoundNumber() != p.getRoundNumber()) {
+                || this.getRoundNumber() != p.getRoundNumber()
+                || this.getWins() != p.getWins()
+                || this.inProgress() != p.inProgress()) {
             return false;
         }
 
