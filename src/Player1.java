@@ -9,7 +9,7 @@ import components.simplewriter.SimpleWriter1L;
  *
  * @convention Score may never exceed 11 except when players are tied.
  * @convention Round number starts at 0 but must be 1 <= round <= 5 (best of 5).
- * @correspondence [0 <= score <= 11, 0 <= roundNumber <= 5, 0 <= wins,
+ * @correspondence [0 <= score <= 11, 1 <= roundNumber <= 5, 0 <= wins,
  *                 inProgress = true | false]
  * @author H. Trowbridge
  */
@@ -19,7 +19,7 @@ public class Player1 extends PlayerSecondary {
      */
 
     /** The last applicable game score. */
-    private int score;
+    private int[] score;
     /** The last applicable round number. */
     private int roundNumber;
     /** The total number of wins. */
@@ -33,7 +33,7 @@ public class Player1 extends PlayerSecondary {
 
     /** Create initial representation of the date in our four variables. */
     private void createNewRep() {
-        this.score = 0;
+        this.score = new int[5];
         this.roundNumber = 0;
         this.wins = 0;
         this.inProgress = false;
@@ -89,17 +89,21 @@ public class Player1 extends PlayerSecondary {
     @Override
     public void endGame() {
         this.inProgress = false;
-        this.score = 0;
     }
 
     @Override
-    public int getScore() {
+    public int getScore(int round) {
+        return this.score[round - 1];
+    }
+
+    @Override
+    public int[] getScoreArr() {
         return this.score;
     }
 
     @Override
-    public void setScore(int changed) {
-        this.score = changed;
+    public void setScore(int round, int content) {
+        this.score[round - 1] = content;
     }
 
     @Override
@@ -132,7 +136,6 @@ public class Player1 extends PlayerSecondary {
         SimpleWriter out = new SimpleWriter1L();
         SimpleReader in = new SimpleReader1L();
         SimpleWriter fileOut;
-        int gameCount = 0;
 
         String fileName;
         out.println(
@@ -141,12 +144,11 @@ public class Player1 extends PlayerSecondary {
         fileName = in.nextLine();
         fileOut = new SimpleWriter1L(fileName);
 
-        out.println("Hey y'all.");
-        out.println("Starting new round for each player :)...");
+        out.println("New round started for each player :)...");
         Player one = new Player1();
         Player two = new Player1();
 
-        out.println("Let's simulate a game between the two. Starting now.");
+        out.println("Let's simulate game 1 between the two. Started!");
         one.startGame();
         two.startGame();
 
@@ -154,17 +156,16 @@ public class Player1 extends PlayerSecondary {
 
         one.endGame();
         two.endGame();
-        gameCount++;
 
-        int roundVal = Math.max(one.getRoundNumber(), two.getRoundNumber());
+        int roundVal = 1;
         boolean finished = false;
         String input;
 
-        while (roundVal < 4 && !finished) {
+        while (roundVal < 5 && !finished) {
             // TODO - cleanup and fix data
             out.println("Would you like to simulate another? Type 'y or n'");
             input = in.nextLine();
-            if (input.toLowerCase().trim().equals("y") && gameCount < 4) {
+            if (input.toLowerCase().trim().equals("y")) {
                 one.startGame();
                 two.startGame();
 
@@ -172,23 +173,14 @@ public class Player1 extends PlayerSecondary {
 
                 one.endGame();
                 two.endGame();
-                gameCount++;
-                out.println("Game " + gameCount + " done!");
+                roundVal++;
+                out.println("Game " + roundVal + " done!");
             } else {
                 finished = true;
             }
         }
 
-        out.println(
-                "Let's simulate one last game between the two. Starting now.");
-        one.startGame();
-        two.startGame();
-
-        one.simulateGame(two);
-
         one.updateClientView(fileOut, two);
-        one.endGame();
-        two.endGame();
         out.println("Game is over!");
 
         out.close();

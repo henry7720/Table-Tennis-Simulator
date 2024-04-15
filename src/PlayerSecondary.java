@@ -27,8 +27,9 @@ public abstract class PlayerSecondary implements Player {
         Player p = (Player) obj;
 
         // Check data rep value equality
-        if (this.getScore() != p.getScore()
-                || this.getRoundNumber() != p.getRoundNumber()
+        if (this.getRoundNumber() != p.getRoundNumber()
+                || this.getScore(this.getRoundNumber()) != p
+                        .getScore(p.getRoundNumber())
                 || this.getWins() != p.getWins()
                 || this.inProgress() != p.inProgress()) {
             return false;
@@ -39,18 +40,19 @@ public abstract class PlayerSecondary implements Player {
 
     @Override
     public int hashCode() {
-        return this.getScore() * this.getRoundNumber();
+        return this.getScore(this.getRoundNumber());
     }
 
     @Override
     public String toString() {
         return "Wins Thus Far: " + this.getWins() + ", Current Round Number: "
-                + this.getRoundNumber() + ", Current Score: " + this.getScore();
+                + this.getRoundNumber() + ", Current Score: "
+                + this.getScore(this.getRoundNumber());
     }
 
     @Override
-    public void addPoint() {
-        this.setScore(this.getScore() + 1);
+    public void addPoint(int round) {
+        this.setScore(round, this.getScore(round) + 1);
     }
 
     @Override
@@ -59,9 +61,9 @@ public abstract class PlayerSecondary implements Player {
     }
 
     @Override
-    public int determineWinner(Player two) {
-        int oneScore = this.getScore();
-        int twoScore = two.getScore();
+    public int determineWinner(Player two, int round) {
+        int twoScore = two.getScore(round);
+        int oneScore = this.getScore(round);
 
         if ((twoScore >= 11 || oneScore >= 11)
                 && Math.abs(oneScore - twoScore) >= 2) {
@@ -85,20 +87,22 @@ public abstract class PlayerSecondary implements Player {
         this.nextRound();
         two.nextRound();
 
-        while (this.determineWinner(two) < 0) {
-            Random random = new Random();
-            if (this.getScore() != two.getScore()) {
-                if (random.nextBoolean()) {
-                    this.setScore(this.getScore() + 1);
-                } else {
-                    two.setScore(two.getScore() + 1);
-                }
+        int round = Math.max(this.getRoundNumber(), two.getRoundNumber());
 
+        while (this.determineWinner(two, round) < 0) {
+            round = Math.max(this.getRoundNumber(), two.getRoundNumber());
+            Random random = new Random();
+            if (this.getScore(round) != two.getScore(round)) {
+                if (random.nextBoolean()) {
+                    this.addPoint(round);
+                } else {
+                    two.addPoint(round);
+                }
             } else {
                 if (random.nextBoolean()) {
-                    this.setScore(this.getScore() + 2);
+                    this.setScore(round, this.getScore(round) + 2);
                 } else {
-                    two.setScore(two.getScore() + 2);
+                    two.setScore(round, two.getScore(round) + 2);
                 }
             }
         }
@@ -117,6 +121,7 @@ public abstract class PlayerSecondary implements Player {
         file.println("      table, th, td {");
         file.println("        border-collapse: collapse;");
         file.println("        border: 1px black solid;");
+        file.println("        font-size: 4vh");
         file.println("      }");
         file.println("    </style>");
         file.println("  </head>");
@@ -125,24 +130,24 @@ public abstract class PlayerSecondary implements Player {
         file.println("    <hr>");
         file.println("    <table>");
         file.println("      <tr>");
-        file.println("        <th></th>");
+        file.println("        <th>Round Number</th>");
         file.println("        <th>Player One</th>");
         file.println("        <th>Player Two</th>");
         file.println("      </tr>");
+        int thisRound = this.getRoundNumber();
+        int twoRound = two.getRoundNumber();
+        int number = Math.min(thisRound, twoRound);
+        for (int i = 1; i <= number; i++) {
+            file.println("      <tr>");
+            file.println("        <td>" + i + "</td>");
+            file.println("        <td>" + this.getScore(i) + "</td>");
+            file.println("        <td>" + two.getScore(i) + "</td>");
+            file.println("      </tr>");
+        }
         file.println("      <tr>");
         file.println("        <th>Wins</th>");
         file.println("        <td>" + this.getWins() + "</td>");
         file.println("        <td>" + two.getWins() + "</td>");
-        file.println("      </tr>");
-        file.println("      <tr>");
-        file.println("        <th>Round Number(s)</th>");
-        file.println("        <td>" + this.getRoundNumber() + "</td>");
-        file.println("        <td>" + two.getRoundNumber() + "</td>");
-        file.println("      </tr>");
-        file.println("      <tr>");
-        file.println("        <th>Last Known Score</th>");
-        file.println("        <td>" + this.getScore() + "</td>");
-        file.println("        <td>" + two.getScore() + "</td>");
         file.println("      </tr>");
         file.println("    </table>");
         file.println("  </body>");
