@@ -35,7 +35,7 @@ public class Player1 extends PlayerSecondary {
      * Standard methods -------------------------------------------------------
      */
 
-    /** Create initial representation of the date in our four variables. */
+    /** Create initial representation of the data in our four variables. */
     private void createNewRep() {
         this.score = new int[5];
         this.roundNumber = 0;
@@ -166,7 +166,6 @@ public class Player1 extends PlayerSecondary {
         String input;
 
         while (roundVal < 5 && !finished) {
-            // TODO - cleanup and fix data
             out.println("Would you like to simulate another? Type 'y or n'");
             input = in.nextLine();
             if (input.toLowerCase().trim().equals("y")) {
