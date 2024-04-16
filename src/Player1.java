@@ -7,10 +7,14 @@ import components.simplewriter.SimpleWriter1L;
  * {@code Player} represented as a set of integer values and a boolean
  * describing score, roundNumber, wins, and game inProgress.
  *
- * @convention Score may never exceed 11 except when players are tied.
- * @convention Round number starts at 0 but must be 1 <= round <= 5 (best of 5).
- * @correspondence [0 <= score <= 11, 1 <= roundNumber <= 5, 0 <= wins,
- *                 inProgress = true | false]
+ * @convention Any given round's score (0 <= score <= 11) may never exceed 11
+ *             except when players are tied.
+ * @convention Round number starts at 0, but must be 1 <= round <= 5 (best of
+ *             5). Wins cannot be negative. inProgress is true for a game that's
+ *             started and false for a game ended.
+ * @correspondence this.score is the array of scores for a maximum of 5 rounds;
+ *                 roundNumber stores the count of round played; this.wins
+ *                 stores the count of wins.
  * @author H. Trowbridge
  */
 public class Player1 extends PlayerSecondary {
