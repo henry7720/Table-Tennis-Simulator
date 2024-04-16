@@ -28,8 +28,7 @@ public abstract class PlayerSecondary implements Player {
 
         // Check data rep value equality
         if (this.getRoundNumber() != p.getRoundNumber()
-                || this.getScore(this.getRoundNumber()) != p
-                        .getScore(p.getRoundNumber())
+                || !this.getScoreArr().equals(p.getScoreArr())
                 || this.getWins() != p.getWins()
                 || this.inProgress() != p.inProgress()) {
             return false;
