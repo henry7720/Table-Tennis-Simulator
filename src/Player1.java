@@ -167,10 +167,10 @@ public class Player1 extends PlayerSecondary {
         one.endGame();
         two.endGame();
 
-        int roundVal = 1;
+        int gameCount = 1;
         String input;
 
-        while (roundVal < 5) {
+        while (gameCount < 5) {
             System.out.println(
                     "Would you like to simulate another? Type 'y or n'");
             input = in.nextLine();
@@ -183,8 +183,8 @@ public class Player1 extends PlayerSecondary {
 
                 one.endGame();
                 two.endGame();
-                roundVal++;
-                System.out.println("Game " + roundVal + " done!");
+                gameCount++;
+                System.out.println("Game (round)" + gameCount + " done!");
             } else {
                 break;
             }
