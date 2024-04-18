@@ -184,7 +184,7 @@ public class Player1 extends PlayerSecondary {
                 one.endGame();
                 two.endGame();
                 gameCount++;
-                System.out.println("Game (round)" + gameCount + " done!");
+                System.out.println("Game (round) " + gameCount + " done!");
             } else {
                 break;
             }
