@@ -90,19 +90,12 @@ public abstract class PlayerSecondary implements Player {
         while (this.determineWinner(two, round) < 0) {
             round = Math.max(this.getRoundNumber(), two.getRoundNumber());
             Random random = new Random();
-            // if (this.getScore(round) == two.getScore(round)) {
+
             if (random.nextBoolean()) {
                 this.addPoint(round);
             } else {
                 two.addPoint(round);
             }
-            // } else {
-            //     if (random.nextBoolean()) {
-            //         this.setScore(round, this.getScore(round) + 2);
-            //     } else {
-            //         two.setScore(round, two.getScore(round) + 2);
-            //     }
-            // }
         }
     }
 
