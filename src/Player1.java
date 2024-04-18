@@ -23,9 +23,9 @@ public class Player1 extends PlayerSecondary {
      * Private members --------------------------------------------------------
      */
 
-    /** The last applicable game score. */
+    /** The list of up to 5 rounds of game scores. */
     private int[] score;
-    /** The last applicable round number. */
+    /** The current round number. */
     private int roundNumber;
     /** The total number of wins. */
     private int wins;
