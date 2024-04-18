@@ -1,7 +1,8 @@
-import components.simplereader.SimpleReader;
-import components.simplereader.SimpleReader1L;
-import components.simplewriter.SimpleWriter;
-import components.simplewriter.SimpleWriter1L;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /**
  * {@code Player} represented as a set of integer values and a boolean
@@ -137,22 +138,27 @@ public class Player1 extends PlayerSecondary {
      *            the command line arguments
      */
     public static void main(String[] args) {
-        SimpleWriter out = new SimpleWriter1L();
-        SimpleReader in = new SimpleReader1L();
-        SimpleWriter fileOut;
+        Scanner in = new Scanner(System.in);
+        PrintWriter fileOut = null;
 
-        String fileName;
-        out.println(
+        System.out.println(
                 "Before we start, please provide the path of where we will report on "
                         + "the status of our 'Players' :D");
-        fileName = in.nextLine();
-        fileOut = new SimpleWriter1L(fileName);
+        String fileName = in.nextLine();
 
-        out.println("New round started for each player :)...");
+        try {
+            fileOut = new PrintWriter(
+                    new BufferedWriter(new FileWriter(fileName)));
+        } catch (IOException e) {
+            System.err.println(
+                    "File could not be opened. Please check the path.");
+        }
+
+        System.out.println("New round started for each player :)...");
         Player one = new Player1();
         Player two = new Player1();
 
-        out.println("Let's simulate game 1 between the two. Started!");
+        System.out.println("Let's simulate game 1 between the two. Started!");
         one.startGame();
         two.startGame();
 
@@ -162,13 +168,14 @@ public class Player1 extends PlayerSecondary {
         two.endGame();
 
         int roundVal = 1;
-        boolean finished = false;
         String input;
 
-        while (roundVal < 5 && !finished) {
-            out.println("Would you like to simulate another? Type 'y or n'");
+        while (roundVal < 5) {
+            System.out.println(
+                    "Would you like to simulate another? Type 'y or n'");
             input = in.nextLine();
-            if (input.toLowerCase().trim().equals("y")) {
+            if (input.toLowerCase().trim().equals("y")
+                    && (one.getWins() < 3 && two.getWins() < 3)) {
                 one.startGame();
                 two.startGame();
 
@@ -177,17 +184,15 @@ public class Player1 extends PlayerSecondary {
                 one.endGame();
                 two.endGame();
                 roundVal++;
-                out.println("Game " + roundVal + " done!");
+                System.out.println("Game " + roundVal + " done!");
             } else {
-                finished = true;
+                break;
             }
         }
+        in.close();
 
         one.updateClientView(fileOut, two);
-        out.println("Game is over!");
-
-        out.close();
-        in.close();
         fileOut.close();
+        System.out.println("Best of 5 is over!");
     }
 }

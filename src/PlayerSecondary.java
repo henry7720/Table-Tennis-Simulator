@@ -1,6 +1,5 @@
+import java.io.PrintWriter;
 import java.util.Random;
-
-import components.simplewriter.SimpleWriter;
 
 /**
  * Layered implementations of secondary methods for {@code Player}.
@@ -91,24 +90,24 @@ public abstract class PlayerSecondary implements Player {
         while (this.determineWinner(two, round) < 0) {
             round = Math.max(this.getRoundNumber(), two.getRoundNumber());
             Random random = new Random();
-            if (this.getScore(round) != two.getScore(round)) {
-                if (random.nextBoolean()) {
-                    this.addPoint(round);
-                } else {
-                    two.addPoint(round);
-                }
+            // if (this.getScore(round) == two.getScore(round)) {
+            if (random.nextBoolean()) {
+                this.addPoint(round);
             } else {
-                if (random.nextBoolean()) {
-                    this.setScore(round, this.getScore(round) + 2);
-                } else {
-                    two.setScore(round, two.getScore(round) + 2);
-                }
+                two.addPoint(round);
             }
+            // } else {
+            //     if (random.nextBoolean()) {
+            //         this.setScore(round, this.getScore(round) + 2);
+            //     } else {
+            //         two.setScore(round, two.getScore(round) + 2);
+            //     }
+            // }
         }
     }
 
     @Override
-    public void updateClientView(SimpleWriter file, Player two) {
+    public void updateClientView(PrintWriter file, Player two) {
         file.println("<!DOCTYPE HTML>");
         file.println("<html lang=\"en\">");
         file.println("  <head>");

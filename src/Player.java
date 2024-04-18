@@ -1,4 +1,4 @@
-import components.simplewriter.SimpleWriter;
+import java.io.PrintWriter;
 
 /**
  * {@code NaturalNumberKernel} enhanced with secondary methods.
@@ -63,5 +63,5 @@ public interface Player extends PlayerKernel {
      * @requires file exists, Player two exists
      * @ensures data will be dumped to web page appropriately
      */
-    void updateClientView(SimpleWriter file, Player two);
+    void updateClientView(PrintWriter file, Player two);
 }
