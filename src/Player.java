@@ -1,15 +1,15 @@
 import java.io.PrintWriter;
 
 /**
- * {@code NaturalNumberKernel} enhanced with secondary methods.
+ * {@code PlayerKernel} enhanced with secondary methods.
  */
 public interface Player extends PlayerKernel {
 
     /**
-     * Adds a point for the round of the score of a player.
+     * Adds a point to the round's score of a player.
      *
      * @param round
-     *            the round to add the score to
+     *            the round's score which to add the point
      * @requires score <= 10, except when the two players already tied
      * @ensures [score in the round += 1]
      */
@@ -19,25 +19,21 @@ public interface Player extends PlayerKernel {
      * Sets up a new game round.
      *
      * @requires round number <= 4
-     * @ensures round number ++
+     * @ensures [round number ++]
      */
     void nextRound();
 
     /**
-     * Determines the winner of the match of two players, then returns that
-     * Player.
+     * Determines the winner of the match of two players for the given round.
      *
      * @param two
      *            the second player to compare to
      * @param round
      *            the round whose values need be compared
-     * @return int value, 0 for player one winning, 1 for player two, -1 for
-     *         neither
-     * @requires both players are initialized and neither player has the same
-     *           score as the other
-     * @ensures [determineWinner(Player one, Player two) = true for player one
-     *          winning, false for player two winning; sets inProgress to be
-     *          false]
+     * @return the integer value which represents the winning state
+     * @requires round >= 1, Player this and two are initialized
+     * @ensures [determineWinner(Player two) = int value: 0 for player one
+     *          winning, 1 for player two, -1 for neither]
      */
     int determineWinner(Player two, int round);
 
@@ -46,9 +42,9 @@ public interface Player extends PlayerKernel {
      *
      * @param two
      *            the player two who will be fought!
-     * @requires two exists
-     * @ensures a game is simulated and appropriate fields of data are updates;
-     *          scores, rounds, etc
+     * @requires two is initialized
+     * @ensures [a game is simulated and appropriate fields of data are updated
+     *          in the representations; scores, rounds, etc]
      */
     void simulateGame(Player two);
 
@@ -56,12 +52,13 @@ public interface Player extends PlayerKernel {
      * Updates the primary index file being live-hosted.
      *
      * @param file
-     *            the file to write to
+     *            the opened file to write to
      * @param two
      *            the player one whose attributes are to be displayed
      *            accompanying this
      * @requires file exists, Player two exists
-     * @ensures data will be dumped to web page appropriately
+     * @ensures [table output dumped to page, minimally three rows for best of
+     *          5]
      */
     void updateClientView(PrintWriter file, Player two);
 }

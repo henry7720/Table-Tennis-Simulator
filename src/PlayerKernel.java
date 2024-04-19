@@ -21,7 +21,7 @@ public interface PlayerKernel extends Standard<Player> {
     /**
      * Starts a game (one round only).
      *
-     * @requires this is not inProgress
+     * @requires this.inProgress = false
      * @ensures [inProgress = true, to represent starting game]
      */
     void startGame();
@@ -29,8 +29,8 @@ public interface PlayerKernel extends Standard<Player> {
     /**
      * End game (one round only).
      *
-     * @requires this is inProgress
-     * @ensures [inProgress = false, to represent ending game, this.score = 0]
+     * @requires this.inProgress = true
+     * @ensures [inProgress = false, to represent ending game; this.score = 0]
      */
     void endGame();
 
@@ -38,9 +38,9 @@ public interface PlayerKernel extends Standard<Player> {
      * Returns the player's current score.
      *
      * @param round
-     *            return the score from the round number
+     *            return the score from the round's number
      * @requires this.roundNumber >= round
-     * @ensures [getScore() = score]
+     * @ensures [getScore() = this current round's score]
      * @return the last current score number
      */
     int getScore(int round);
@@ -48,7 +48,7 @@ public interface PlayerKernel extends Standard<Player> {
     /**
      * Returns the entire score array.
      *
-     * @ensures [getScoreArr() = string of scores]
+     * @ensures [getScoreArr() = list of scores]
      * @return the last current score number
      */
     int[] getScoreArr();
@@ -57,11 +57,11 @@ public interface PlayerKernel extends Standard<Player> {
      * Sets the player's current score.
      *
      * @param round
-     *            whuch round number's scores are updated
+     *            which round number's scores are updated
      * @param content
      *            new score to place
-     * @requires changed >= 0 and changed > score
-     * @ensures [score = changed]
+     * @requires content >= 0 and round >= 1
+     * @ensures [score for round = content]
      */
     void setScore(int round, int content);
 
@@ -87,7 +87,7 @@ public interface PlayerKernel extends Standard<Player> {
      * Updates the player's current wins.
      *
      * @param changed
-     *            is the new wins value
+     *            the new wins value
      * @requires 0 < totalWins <= 5
      * @ensures [this.wins = changed]
      */

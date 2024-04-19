@@ -9,13 +9,18 @@ import java.util.Scanner;
  * describing score, roundNumber, wins, and game inProgress.
  *
  * @convention Any given round's score (0 <= score <= 11) may never exceed 11
- *             except when players are tied.
+ *             except when players are tied, in which case the winner must win
+ *             by 2.
  * @convention Round number starts at 0, but must be 1 <= round <= 5 (best of
  *             5). Wins cannot be negative. inProgress is true for a game that's
  *             started and false for a game ended.
- * @correspondence this.score is the array of scores for a maximum of 5 rounds;
- *                 roundNumber stores the count of round played; this.wins
- *                 stores the count of wins.
+ * @correspondence [this.score is directly interpreted as the scores for each
+ *                 round, where the indices correspond to the round number minus
+ *                 one]
+ * @correspondence [this.wins is directly interpreted as the current count of
+ *                 wins this Player has achieved]
+ * @correspondence [this.roundNumber is directly interpreted as the current
+ *                 count of how many rounds in a set of 5]
  * @author H. Trowbridge
  */
 public class Player1 extends PlayerSecondary {
