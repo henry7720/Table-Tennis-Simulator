@@ -179,8 +179,8 @@ public class Player1 extends PlayerSecondary {
             System.out.println(
                     "Would you like to simulate another? Type 'y or n'");
             input = in.nextLine();
-            if (input.toLowerCase().trim().equals("y")
-                    && (one.getWins() < 3 && two.getWins() < 3)) {
+            if (input.toLowerCase().trim().equals("y") && one.getWins() < 3
+                    && two.getWins() < 3) {
                 one.startGame();
                 two.startGame();
 
