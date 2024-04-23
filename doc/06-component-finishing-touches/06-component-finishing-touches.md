@@ -54,42 +54,42 @@ a quick overview of what you need to do to get the assignment done as follows:
 
 ### Getting Started Tasks
 
-- [ ] I have added my name to the top of this document
-- [ ] I have added my dot number to the top of this document
-- [ ] I have added the due date to the top of this document
-- [ ] I have read the assignment overview in the "Assignment Overview" section
-- [ ] I have read the assignment learning objectives in the "Assignment Learning Objectives" section
-- [ ] I have read the assignment rubric in the "Assignment Rubric" section
-- [ ] I have read this checklist
+- [X] I have added my name to the top of this document
+- [X] I have added my dot number to the top of this document
+- [X] I have added the due date to the top of this document
+- [X] I have read the assignment overview in the "Assignment Overview" section
+- [X] I have read the assignment learning objectives in the "Assignment Learning Objectives" section
+- [X] I have read the assignment rubric in the "Assignment Rubric" section
+- [X] I have read this checklist
 
 ### Ongoing Tasks
 
-- [ ] I have shared my reflection in the "Pre-Assignment" section
-- [ ] I have created a test file for my kernel implementation
-  - [ ] I have created a new Java file in `test`
-  - [ ] I have exhaustively tested all of the kernel methods
-  - [ ] I am aware that I cannot test my component against a reference implementation
-- [ ] I have created a test file for my abstract class
-  - [ ] I have created a new Java file in `test`
-  - [ ] I have exhaustively tested all of the secondary methods
-  - [ ] I am aware that I cannot test my component against a reference implementation
-- [ ] I have create a code sample demonstrating a use case of my component
-  - [ ] I have created a new Java file in `src`
-  - [ ] I have imported and used my component in this file
-- [ ] I have create another qualitatively different code sample demonstrating a use case of my component
-  - [ ] I have created a new Java file in `src`
-  - [ ] I have imported and used my component in this file
-- [ ] I have published my project to an open-source remote repository
-  - [ ] I have ensured that my repository is public
-  - [ ] I know the project url (e.g., https://github.com/TheRenegadeCoder/sample-programs)
+- [X] I have shared my reflection in the "Pre-Assignment" section
+- [X] I have created a test file for my kernel implementation
+  - [X] I have created a new Java file in `test`
+  - [X] I have exhaustively tested all of the kernel methods
+  - [X] I am aware that I cannot test my component against a reference implementation
+- [X] I have created a test file for my abstract class
+  - [X] I have created a new Java file in `test`
+  - [X] I have exhaustively tested all of the secondary methods
+  - [X] I am aware that I cannot test my component against a reference implementation
+- [X] I have create a code sample demonstrating a use case of my component
+  - [X] I have created a new Java file in `src`
+  - [X] I have imported and used my component in this file
+- [X] I have create another qualitatively different code sample demonstrating a use case of my component
+  - [X] I have created a new Java file in `src`
+  - [X] I have imported and used my component in this file
+- [X] I have published my project to an open-source remote repository
+  - [X] I have ensured that my repository is public
+  - [X] I know the project url (e.g., https://github.com/TheRenegadeCoder/sample-programs)
 
 ### Submission Tasks
 
-- [ ] I have shared assignment feedback in the "Assignment Feedback" section
-- [ ] I have converted this document to a PDF
-- [ ] I compressed my project to a `.zip` file
-- [ ] I am prepared to submit the PDF, the zip, and the link to the remote repo to Carmen
-- [ ] I am prepared to give my peers feedback on their ideas
+- [X] I have shared assignment feedback in the "Assignment Feedback" section
+- [X] I have converted this document to a PDF
+- [X] I compressed my project to a `.zip` file
+- [X] I am prepared to submit the PDF, the zip, and the link to the remote repo to Carmen
+- [X] I am prepared to give my peers feedback on their ideas
 
 ## Assignment Learning Objectives
 
@@ -145,18 +145,18 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-A lot better, because I actually got to make something!
+A lot better, because I actually got to make something! Also, I got to deal with a lot of the nuances, which was honestly pretty nice. It made for a complete product that I can be proud of, even if its utility is relatively minimal.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-Gaps are in general design decisions -- where to put what, most of all. This helped because I was able to target my confusion to make a cohesive product.
+Gaps are in general design decisions -- where to put what, most of all. This helped because I was able to target my confusion to make it happen.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-It's not my personal favorite, but then again, it never was. It hasn't changed my perspective.
+It hasn't changed my perspective. I think FOSS is epic, so I still like my tech and enjoy the work I do.
 
 ### Personal Growth
 
@@ -166,26 +166,27 @@ It's not my personal favorite, but then again, it never was. It hasn't changed m
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-Making my own test cases, designing a complete product.
+Making my own test cases, designing a complete product from the ground up -- with my complete choice of implementation.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
 - Designed a complete product for a table tennis game simulator
 - Learned how to build robust test cases
+- Learned to prioritize appropriate data structures
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-I do not, but I am not going to become a software devloper anyhow! Haha.
+It hasn't really. I do not suddenly hate anything, thats for sure! I am not incredibly interested in being a software dev my entire life, though.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-Go to Hackathons, get those impossible-to-get internships.
+Go to Hackathons, acquire internships, join more clubs.
 
 ## Assignment Tasks
 
