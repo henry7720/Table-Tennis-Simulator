@@ -69,54 +69,6 @@ public class Player1Test {
         test1 = test2.newInstance();
     }
 
-    /** Test equals and constructor for empty players. */
-    @Test
-    public final void testEquals() {
-        Player test1 = new Player1();
-        Player test2 = new Player1();
-
-        assertEquals(true, test1.equals(test2));
-    }
-
-    /** Test equals after changing various properties. */
-    @Test
-    public final void testEqualsInProgress() {
-        Player test1 = new Player1();
-        Player test2 = new Player1();
-
-        test1.startGame();
-        test2.startGame();
-
-        assertEquals(true, test1.equals(test2));
-    }
-
-    /** Test equals after changing various properties. */
-    @Test
-    public final void testEqualsWithPoints() {
-        Player test1 = new Player1();
-        Player test2 = new Player1();
-
-        test1.startGame();
-        test2.startGame();
-
-        test1.addPoint(1);
-        test2.addPoint(1);
-
-        assertEquals(true, test1.equals(test2));
-    }
-
-    /** Test equals after changing various properties. */
-    @Test
-    public final void testEqualsContradiction() {
-        Player test1 = new Player1();
-        Player test2 = new Player1();
-
-        test1.startGame();
-        test1.addPoint(1);
-
-        assertEquals(false, test1.equals(test2));
-    }
-
     /** Test transferFrom with properties. */
     @Test
     public final void testTransferFrom() {

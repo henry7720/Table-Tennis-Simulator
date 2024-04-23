@@ -25,16 +25,18 @@ public abstract class PlayerSecondary implements Player {
         // Since it is Player object, formally cast
         Player p = (Player) obj;
 
+        int[] thisArr = this.getScoreArr();
+        int[] pArr = p.getScoreArr();
+
+        for (int i = 0; i < thisArr.length; i++) {
+            if (thisArr[i] != pArr[i]) {
+                return false;
+            }
+        }
+
         // Check data rep value equality
         if (this.getRound() != p.getRound() || this.getWins() != p.getWins()
                 || this.inProgress() != p.inProgress()) {
-            int[] thisArr = this.getScoreArr();
-            int[] pArr = p.getScoreArr();
-            for (int i = 0; i < thisArr.length; i++) {
-                if (thisArr[i] != pArr[i]) {
-                    return false;
-                }
-            }
             return false;
         }
 
