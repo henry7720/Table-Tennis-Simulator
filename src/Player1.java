@@ -117,7 +117,7 @@ public class Player1 extends PlayerSecondary {
     }
 
     @Override
-    public int getRoundNumber() {
+    public int getRound() {
         return this.roundNumber;
     }
 

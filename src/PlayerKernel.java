@@ -69,10 +69,10 @@ public interface PlayerKernel extends Standard<Player> {
      * Returns the player's current score.
      *
      * @requires 1 < roundNumber <= 5
-     * @ensures [getRoundNumber() = roundNumber]
+     * @ensures [getRound() = roundNumber]
      * @return the current round number
      */
-    int getRoundNumber();
+    int getRound();
 
     /**
      * Returns the player's total wins.

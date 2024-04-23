@@ -26,7 +26,7 @@ public abstract class PlayerSecondary implements Player {
         Player p = (Player) obj;
 
         // Check data rep value equality
-        if (this.getRoundNumber() != p.getRoundNumber()
+        if (this.getRound() != p.getRound()
                 || !this.getScoreArr().equals(p.getScoreArr())
                 || this.getWins() != p.getWins()
                 || this.inProgress() != p.inProgress()) {
@@ -38,14 +38,14 @@ public abstract class PlayerSecondary implements Player {
 
     @Override
     public int hashCode() {
-        return this.getScore(this.getRoundNumber());
+        return this.getScore(this.getRound());
     }
 
     @Override
     public String toString() {
         return "Wins Thus Far: " + this.getWins() + ", Current Round Number: "
-                + this.getRoundNumber() + ", Current Score: "
-                + this.getScore(this.getRoundNumber());
+                + this.getRound() + ", Current Score: "
+                + this.getScore(this.getRound());
     }
 
     @Override
@@ -55,7 +55,7 @@ public abstract class PlayerSecondary implements Player {
 
     @Override
     public void nextRound() {
-        this.setRound(this.getRoundNumber() + 1);
+        this.setRound(this.getRound() + 1);
     }
 
     @Override
@@ -85,10 +85,10 @@ public abstract class PlayerSecondary implements Player {
         this.nextRound();
         two.nextRound();
 
-        int round = Math.max(this.getRoundNumber(), two.getRoundNumber());
+        int round = Math.max(this.getRound(), two.getRound());
 
         while (this.determineWinner(two, round) < 0) {
-            round = Math.max(this.getRoundNumber(), two.getRoundNumber());
+            round = Math.max(this.getRound(), two.getRound());
             Random random = new Random();
 
             if (random.nextBoolean()) {
@@ -125,8 +125,8 @@ public abstract class PlayerSecondary implements Player {
         file.println("        <th>Player One</th>");
         file.println("        <th>Player Two</th>");
         file.println("      </tr>");
-        int thisRound = this.getRoundNumber();
-        int twoRound = two.getRoundNumber();
+        int thisRound = this.getRound();
+        int twoRound = two.getRound();
         int number = Math.min(thisRound, twoRound);
         for (int i = 1; i <= number; i++) {
             file.println("      <tr>");
