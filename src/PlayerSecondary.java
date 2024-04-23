@@ -26,10 +26,15 @@ public abstract class PlayerSecondary implements Player {
         Player p = (Player) obj;
 
         // Check data rep value equality
-        if (this.getRound() != p.getRound()
-                || !this.getScoreArr().equals(p.getScoreArr())
-                || this.getWins() != p.getWins()
+        if (this.getRound() != p.getRound() || this.getWins() != p.getWins()
                 || this.inProgress() != p.inProgress()) {
+            int[] thisArr = this.getScoreArr();
+            int[] pArr = p.getScoreArr();
+            for (int i = 0; i < thisArr.length; i++) {
+                if (thisArr[i] != pArr[i]) {
+                    return false;
+                }
+            }
             return false;
         }
 
@@ -45,7 +50,7 @@ public abstract class PlayerSecondary implements Player {
     public String toString() {
         return "Wins Thus Far: " + this.getWins() + ", Current Round Number: "
                 + this.getRound() + ", Current Score: "
-                + this.getScore(this.getRound());
+                + this.getScore(this.getRound() + 1);
     }
 
     @Override

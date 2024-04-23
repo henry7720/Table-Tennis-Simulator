@@ -57,8 +57,8 @@ public interface Player extends PlayerKernel {
      *            the player one whose attributes are to be displayed
      *            accompanying this
      * @requires file exists, Player two exists
-     * @ensures [table output dumped to page, minimally three rows for best of
-     *          5]
+     * @ensures [table output dumped to page, minimally three rows of scores for
+     *          best of 5]
      */
     void updateClientView(PrintWriter file, Player two);
 }
