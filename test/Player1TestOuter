@@ -1,0 +1,9 @@
+/**
+ * Customized JUnit test fixture for {@code Map4} using non-default constructor
+ * and hash table size 1009.
+ */
+public class Player1TestOuter extends Player1Test {
+
+
+
+}

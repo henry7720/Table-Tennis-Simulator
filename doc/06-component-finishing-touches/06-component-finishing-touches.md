@@ -1,9 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
-
+- **Name**: Henry Trowbridge
+- **Dot Number**: trowbridge.47
+- **Due Date**: 4/19
 ## Assignment Overview
 
 By now, you should have an entire component implemented at all levels. For
@@ -146,18 +145,18 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-<!-- TODO: discuss -->
+A lot better, because I actually got to make something!
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-<!-- TODO: discuss -->
+Gaps are in general design decisions -- where to put what, most of all. This helped because I was able to target my confusion to make a cohesive product.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-<!-- TODO: discuss -->
+It's not my personal favorite, but then again, it never was. It hasn't changed my perspective.
 
 ### Personal Growth
 
@@ -167,25 +166,26 @@ Take some time to fill them out honestly.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+Making my own test cases, designing a complete product.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+- Designed a complete product for a table tennis game simulator
+- Learned how to build robust test cases
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+I do not, but I am not going to become a software devloper anyhow! Haha.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+Go to Hackathons, get those impossible-to-get internships.
 
 ## Assignment Tasks
 
