@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 /** Model the algorithm for generating wins. */
