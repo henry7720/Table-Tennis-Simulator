@@ -4,7 +4,6 @@ import java.io.PrintWriter;
  * {@code PlayerKernel} enhanced with secondary methods.
  */
 public interface Player extends PlayerKernel {
-
     /**
      * Adds a point to the round's score of a player.
      *

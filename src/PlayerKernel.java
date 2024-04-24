@@ -7,7 +7,6 @@ import components.standard.Standard;
  * class may be satisfied.
  */
 public interface PlayerKernel extends Standard<Player> {
-
     /**
      * Returns if the current game is in progress.
      *

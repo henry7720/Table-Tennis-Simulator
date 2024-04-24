@@ -71,6 +71,46 @@ public class PlayerTest {
         assertEquals(true, test1.equals(test2));
     }
 
+    /** Test equals after changing various properties. */
+    @Test
+    public final void testEndGame() {
+        Player test1 = new Player1();
+        Player test2 = new Player1();
+
+        test1.startGame();
+
+        assertEquals(false, test1.equals(test2));
+        test1.endGame();
+        assertEquals(true, test1.equals(test2));
+    }
+
+    /** Test equals after changing various properties. */
+    @Test
+    public final void testEndGame2() {
+        Player test1 = new Player1();
+        Player test2 = new Player1();
+
+        test1.startGame();
+        test2.startGame();
+
+        assertEquals(true, test1.equals(test2));
+        test1.endGame();
+        test2.endGame();
+        assertEquals(true, test1.equals(test2));
+    }
+
+    /** Test equals after changing various properties. */
+    @Test
+    public final void testEndGameInProgress() {
+        Player test1 = new Player1();
+        Player test2 = new Player1();
+
+        test1.startGame();
+
+        assertEquals(true, test1.inProgress());
+        assertEquals(false, test2.inProgress());
+    }
+
     /** Test addPoint twice. */
     @Test
     public final void testAddPoint2() {
