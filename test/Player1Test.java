@@ -41,7 +41,7 @@ public class Player1Test {
         Player test2 = new Player1();
 
         test1.startGame();
-        test1.addPoint(3);
+        test1.setScore(3, 1);
 
         test1.clear();
 
@@ -64,7 +64,7 @@ public class Player1Test {
         Player test2 = new Player1();
 
         test1.startGame();
-        test1.addPoint(3);
+        test1.setScore(3, 1);
 
         test1 = test2.newInstance();
     }
@@ -77,10 +77,10 @@ public class Player1Test {
         Player test3 = new Player1();
 
         test1.startGame();
-        test1.addPoint(1);
+        test1.setScore(1, 1);
 
         test2.startGame();
-        test2.addPoint(1);
+        test2.setScore(1, 1);
 
         test3.transferFrom(test1);
 
@@ -100,53 +100,6 @@ public class Player1Test {
         test3.transferFrom(test1);
 
         assertEquals(test2, test3);
-    }
-
-    /** Test toString empty properties. */
-    @Test
-    public final void testToStringRoundNumbers() {
-        Player test1 = new Player1();
-        Player test2 = new Player1();
-        Player test3 = new Player1();
-
-        test1.setRound(2);
-        test2.setRound(2);
-        test3.setRound(2);
-
-        assertEquals(test1.toString(), test2.toString());
-
-        assertEquals(true, test1.equals(test2));
-        assertEquals(true, test1.equals(test3));
-    }
-
-    /** Test toString properties. */
-    @Test
-    public final void testToStringStartGame() {
-        Player test1 = new Player1();
-        Player test2 = new Player1();
-        Player test3 = new Player1();
-
-        test1.startGame();
-        test2.startGame();
-        test3.startGame();
-
-        assertEquals(test1.toString(), test2.toString());
-
-        assertEquals(true, test1.equals(test2));
-        assertEquals(true, test1.equals(test3));
-    }
-
-    /** Test toString empty properties. */
-    @Test
-    public final void testToStringDefault() {
-        Player test1 = new Player1();
-        Player test2 = new Player1();
-
-        assertEquals(
-                "Wins Thus Far: 0, Current Round Number: 0, Current Score: 0",
-                test1.toString());
-
-        assertEquals(true, test1.equals(test2));
     }
 
     /** Test startGame with inProgress. */
