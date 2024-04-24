@@ -315,7 +315,7 @@ public class PlayerTest {
 
     /** Test simulate games. */
     @Test
-    public final void testSimulateGames() {
+    public final void testSimulate5Games() {
         Player test1 = new Player1();
         Player test2 = new Player1();
 
