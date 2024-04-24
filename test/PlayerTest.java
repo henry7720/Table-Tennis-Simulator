@@ -215,7 +215,6 @@ public class PlayerTest {
     @Test
     public final void testHashCode() {
         Player test1 = new Player1();
-        Player test2 = new Player1();
 
         test1.setRound(5);
         test1.setScore(5, 11);
@@ -227,7 +226,6 @@ public class PlayerTest {
     @Test
     public final void testHashCode2() {
         Player test1 = new Player1();
-        Player test2 = new Player1();
 
         test1.setRound(3);
         test1.setScore(3, 9);
@@ -239,7 +237,6 @@ public class PlayerTest {
     @Test
     public final void testHashCode3() {
         Player test1 = new Player1();
-        Player test2 = new Player1();
 
         test1.setRound(4);
         test1.setScore(4, 77);

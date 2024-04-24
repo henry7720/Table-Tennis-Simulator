@@ -179,7 +179,7 @@ Making my own test cases, designing a complete product from the ground up -- wit
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-It hasn't really. I do not suddenly hate anything, thats for sure! I am not incredibly interested in being a software dev my entire life, though.
+It hasn't really. I do not suddenly hate anything, that's for sure! I am not incredibly interested in being a software dev my entire life, though.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your

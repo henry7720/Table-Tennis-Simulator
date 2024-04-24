@@ -14,7 +14,6 @@ public class Player1Test {
     public final void testNoArgConstructor() {
         Player test1 = new Player1();
 
-        int[] defaultArr = new int[5];
         assertEquals(false, test1.inProgress());
         assertEquals(0, test1.getScore(1));
         assertEquals(0, test1.getRound());
@@ -27,7 +26,6 @@ public class Player1Test {
         Player test1 = new Player1();
         test1.clear();
 
-        int[] defaultArr = new int[5];
         assertEquals(false, test1.inProgress());
         assertEquals(0, test1.getScore(1));
         assertEquals(0, test1.getRound());
@@ -55,6 +53,7 @@ public class Player1Test {
         Player test2 = new Player1();
         test1 = test2.newInstance();
 
+        assertEquals(true, test1.equals(test2));
     }
 
     /** Test newInstance with properties. */
@@ -67,6 +66,8 @@ public class Player1Test {
         test1.setScore(3, 1);
 
         test1 = test2.newInstance();
+
+        assertEquals(true, test1.equals(test2));
     }
 
     /** Test transferFrom with properties. */

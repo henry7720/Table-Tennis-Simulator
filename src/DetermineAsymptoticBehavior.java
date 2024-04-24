@@ -13,12 +13,13 @@ public class DetermineAsymptoticBehavior {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
+        final int runs = 100000;
         int gameCount = 0;
         int countYes = 0;
         int countNo = 0;
 
         Random generator = new Random();
-        while (gameCount < 100000) {
+        while (gameCount < runs) {
             boolean yesOrNo = generator.nextBoolean();
             if (yesOrNo) {
                 countYes++;
@@ -30,11 +31,11 @@ public class DetermineAsymptoticBehavior {
         in.close();
         System.out.println("Best of 100001 is over!");
 
-        double maxWins = Math.max(countYes, countNo);
         double mostLs = Math.min(countYes, countNo);
         System.out.println(
                 "Asymptotically, we should hope to see a very small differential, since "
-                        + "these players have equivalent skill and good days and bad days :).");
+                        + "these players have equivalent skill "
+                        + "and good days and bad days :).");
         System.out.println(
                 "This gives the losing player a winning percentage of only: "
                         + (mostLs / gameCount) * 100 + "%");
