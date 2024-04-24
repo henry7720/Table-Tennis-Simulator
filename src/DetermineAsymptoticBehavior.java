@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 /** Model the algorithm for generating wins. */
@@ -33,7 +32,8 @@ public class DetermineAsymptoticBehavior {
         double maxWins = Math.max(countYes, countNo);
         double mostLs = Math.min(countYes, countNo);
         System.out.println(
-                "Asymptotically, we should hope to see a very small differential, since these players have equivalent skill and good days and bad days :).");
+                "Asymptotically, we should hope to see a very small differential, since "
+                        + "these players have equivalent skill and good days and bad days :).");
         System.out.println(
                 "This gives the losing player a winning percentage of only: "
                         + (mostLs / gameCount) * 100 + "%");
