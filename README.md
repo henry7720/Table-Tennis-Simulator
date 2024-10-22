@@ -1,5 +1,5 @@
 # Table Tennis Simulator Java Component
-This is a Java component which simulates game scores, with layered implementation classes. This was made for fun and as a project Ohio State CSE 2231.
+This is a Java component which simulates game scores, with layered implementation classes. This was made for fun and as a project Ohio State CSE 2231. As a player, it's a fairly realistic generation for equally-skilled opponents.
 
 ## Requirements
 * Java JDK ≥ 8
