@@ -10,4 +10,4 @@ To give it a try, clone the repo and run Player1.java. Follow the listed instruc
 **Note**: if you are confused, make sure to read the inline documentation for each method's contract.
 
 ## License
-[MIT](LICENSE)
+[GPLv3](LICENSE)
